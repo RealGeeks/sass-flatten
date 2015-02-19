@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var path = require('path');
+var fs = require('fs');
+var read = fs.readFileSync;
+var write = fs.writeFileSync;
+
+var flatten = require('../');
+var meow = require('meow');
+var stdin = require('get-stdin');
+
+var cli = meow({
+  pkg: '../package.json',
+  help: [
+    'Usage',
+    '  sass-flatten <input.scss> [output.scss]',
+    'Options',
+    '  --include-path            Path to look for imported files'
+  ].join('\n')
+});
+
+var src = cli.input[0];
+var dest = cli.input[1] || src;
+var inc = cli.flags.includePath || path.dirname(src);
+
+if (src) {
+  write(dest, flatten(read(src, 'utf8'), inc));
+} else {
+  stdin(function (data) {
+    console.log(flatten(data, inc));
+  });
+}
