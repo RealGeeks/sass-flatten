@@ -1,5 +1,5 @@
 {
-  "name": "sass-flatten",
+  "name": "@realgeeks/sass-flatten",
   "version": "0.1.0",
   "description": "Reduce a Sass (scss) file structure to a single file by inlining partial imports.",
   "files": [
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "https://github.com/RealGeeks/sass-flatten.git"
   },
-  "author": "Sorin Iclanzan <sorin@iclanzan.com> (http://iclanzan.com/)",
+  "author": "Jorge Valdez <jorge@realgeeks.com>",
   "bugs": {
     "url": "https://github.com/RealGeeks/sass-flatten/issues"
   },
