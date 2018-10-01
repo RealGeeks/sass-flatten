@@ -10,7 +10,9 @@
     "sass-flatten": "bin/sass-flatten"
   },
   "scripts": {
-    "test": "node tests.js"
+    "test": "node tests.js",
+    "release:dev": "npx np patch --no-yarn --tag=dev --any-branch",
+    "release:master": "npx np patch --no-yarn"
   },
   "repository": {
     "type": "git",
