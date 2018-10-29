@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/RealGeeks/sass-flatten",
   "devDependencies": {
-    "tape": "^3.5.0"
+    "tape": "^4.9.1"
   },
   "dependencies": {
     "get-stdin": "^4.0.1",
