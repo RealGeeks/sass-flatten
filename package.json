@@ -29,6 +29,6 @@
   "dependencies": {
     "get-stdin": "^6.0.0",
     "gonzales-pe": "^4.2.3",
-    "meow": "^3.0.0"
+    "meow": "^5.0.0"
   }
 }
