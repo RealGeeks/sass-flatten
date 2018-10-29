@@ -31,7 +31,7 @@ var flatten = module.exports = function (data, includePath) {
     }
   }
 
-  return ast.toCSS('scss');
+  return ast.toString('scss');
 };
 
 var resolveScssPath = flatten.resolvePath = function (sassPath, includePaths) {
@@ -55,7 +55,7 @@ var resolveScssPath = flatten.resolvePath = function (sassPath, includePaths) {
 };
 
 function isImportStatement(node) {
-  return node.type == 'atrules' &&
+  return node.type == 'atrule' &&
     node.content[0].type == 'atkeyword' &&
     node.content[0].content[0].type == 'ident' &&
     node.content[0].content[0].content == 'import';
