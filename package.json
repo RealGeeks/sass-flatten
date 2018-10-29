@@ -27,7 +27,7 @@
     "tape": "^4.9.1"
   },
   "dependencies": {
-    "get-stdin": "^4.0.1",
+    "get-stdin": "^6.0.0",
     "gonzales-pe": "^4.2.3",
     "meow": "^3.0.0"
   }
