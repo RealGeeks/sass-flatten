@@ -11,8 +11,9 @@
   },
   "scripts": {
     "test": "node tests.js",
-    "release:dev": "npx np patch --no-yarn --tag=dev --any-branch",
-    "release:master": "npx np patch --no-yarn"
+    "release:base": "npx np --no-yarn",
+    "release:dev": "npm run release:base -- --tag=dev --any-branch patch",
+    "release:patch": "npm run release:base -- patch"
   },
   "repository": {
     "type": "git",
