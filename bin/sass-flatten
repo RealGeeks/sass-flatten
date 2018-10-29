@@ -11,23 +11,15 @@ var flatten = require('../');
 var meow = require('meow');
 var getStdin = require('get-stdin');
 
-// var cli = meow({
-//   pkg: '../package.json',
-//   help: [
-//     'Usage',
-//     '  sass-flatten <input.scss> [output.scss]',
-//     'Options',
-//     '  --include-path            Path to look for imported files'
-//   ].join('\n')
-// });
-
-var cli = meow(`
+var HELP_TEXT = `
 Usage
-  sass-flatten <input.scss> [output.scss]
+  sass-flatten <input scss file> [output scss file]
 
 Options
   --include-path            Path to look for imported files
-`, {
+`;
+
+var cli = meow(HELP_TEXT, {
   pkg: require('../package.json')
 });
 
@@ -35,7 +27,7 @@ var src = cli.input[0];
 var dest = cli.input[1] || src;
 
 if (!src) {
-  console.log('Please pass the required input file path.');
+  console.log(`An input scss file path is required.\n${HELP_TEXT}`);
   return;
 }
 
