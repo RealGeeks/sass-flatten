@@ -12,3 +12,11 @@ test('Flatten', function (assert) {
     read('./fixtures/expected.scss', 'utf8')
   );
 });
+
+test('Flatten fails on an unresolved import', function (assert) {
+  assert.plan(1);
+
+  assert.throws(function () {
+    flatten(read('./fixtures/input.1.scss', 'utf8'), './fixtures/')
+  });
+});

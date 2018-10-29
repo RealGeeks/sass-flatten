@@ -47,6 +47,10 @@ var resolveScssPath = flatten.resolvePath = function (sassPath, includePaths) {
     if (fs.existsSync(file)) {
       return file;
     }
+
+    else {
+      throw new Error("Could not resolve import for file " + file + " with sassPath " + sassPath + " with include paths " + includePaths);
+    }
   }
 };
 
