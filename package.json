@@ -24,11 +24,11 @@
   },
   "homepage": "https://github.com/RealGeeks/sass-flatten",
   "devDependencies": {
-    "tape": "^3.5.0"
+    "tape": "^4.9.1"
   },
   "dependencies": {
-    "get-stdin": "^4.0.1",
-    "gonzales-pe": "3.0.0-26",
-    "meow": "^3.0.0"
+    "get-stdin": "^6.0.0",
+    "gonzales-pe": "^4.2.3",
+    "meow": "^5.0.0"
   }
 }
