@@ -30,12 +30,17 @@ var inc = cli.flags.includePath || path.dirname(src);
 
 if (src) {
   try {
-    write(dest, flatten(read(src, 'utf8'), inc));
+    console.log(`Opening file at ${src}...`);
+    const inputFile = read(src, 'utf8');
+
+    console.log('Flattening...');
+    const flattened = flatten(inputFile, inc);
+
+    console.log(`Writing flat file to ${dest}...`);
+    write(dest, flattened);
   }
   catch(error) {
     console.error(JSON.stringify(error, null, 2));
-    console.error((new Error()).stack);
-
     throw error;
   }
 } else {
