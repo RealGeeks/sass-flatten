@@ -36,6 +36,7 @@ if (src) {
       console.log(flatten(data, inc));
     })
     .catch(function (err) {
+      console.error(err);
       console.log(`An input scss file path is required.\n${HELP_TEXT}`);
     });
 }
