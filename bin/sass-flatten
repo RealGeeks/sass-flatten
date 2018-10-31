@@ -26,17 +26,16 @@ var cli = meow(HELP_TEXT, {
 var src = cli.input[0];
 var dest = cli.input[1] || src;
 
-if (!src) {
-  console.log(`An input scss file path is required.\n${HELP_TEXT}`);
-  return;
-}
-
 var inc = cli.flags.includePath || path.dirname(src);
 
 if (src) {
   write(dest, flatten(read(src, 'utf8'), inc));
 } else {
-  getStdin().then(function (data) {
-    console.log(flatten(data, inc));
-  });
+  getStdin()
+    .then(function (data) {
+      console.log(flatten(data, inc));
+    })
+    .catch(function (err) {
+      console.log(`An input scss file path is required.\n${HELP_TEXT}`);
+    });
 }
