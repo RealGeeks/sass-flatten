@@ -33,7 +33,9 @@ if (src) {
     write(dest, flatten(read(src, 'utf8'), inc));
   }
   catch(error) {
-    console.error(error.stack);
+    console.error(JSON.stringify(error, null, 2));
+    console.error((new Error()).stack);
+
     throw error;
   }
 } else {
