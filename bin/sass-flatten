@@ -29,16 +29,10 @@ var dest = cli.input[1] || src;
 var inc = cli.flags.includePath || path.dirname(src);
 
 if (src) {
-  try {
-    const inputFile = read(src, 'utf8');
-    const flattened = flatten(inputFile, inc);
+  const inputFile = read(src, 'utf8');
+  const flattened = flatten(inputFile, inc);
 
-    write(dest, flattened);
-  }
-  catch(error) {
-    console.error(JSON.stringify(error, null, 2));
-    throw error;
-  }
+  write(dest, flattened);
 } else {
   getStdin()
     .then(function (data) {

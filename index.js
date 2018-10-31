@@ -7,7 +7,6 @@ var gonzales = require('gonzales-pe');
 
 var flatten = module.exports = function (data, includePath) {
   var ast = gonzales.parse(data, {syntax: 'scss'});
-  console.log('AFTER A PARSE');
   var content = ast.content;
   var args;
 
@@ -32,7 +31,6 @@ var flatten = module.exports = function (data, includePath) {
     }
   }
 
-  console.log('DOING THE TOSTRING');
   return ast.toString('scss');
 };
 
@@ -64,7 +62,6 @@ function isImportStatement(node) {
 }
 
 function accumulate(includePath, array, node) {
-  console.log('ACCUMULATE');
   if (node.type == 'string') {
     var resolvedFile = resolveScssPath(
       // Remove quotes
@@ -74,16 +71,11 @@ function accumulate(includePath, array, node) {
 
     if (resolvedFile) {
       var resolvedDir = path.dirname(resolvedFile);
-      console.dir({
-        includePath,
-        array,
-        node,
-      });
+
       var subnodes = gonzales.parse(
         read(resolvedFile, 'utf8'),
         {syntax: 'scss'}
       ).content;
-      console.log('AFTER ACC PARSE');
 
       subnodes.forEach(function (node) {
         node.includePath = resolvedDir;
