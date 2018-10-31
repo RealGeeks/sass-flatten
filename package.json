@@ -1,6 +1,6 @@
 {
   "name": "@realgeeks/sass-flatten",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Reduce a Sass (scss) file structure to a single file by inlining partial imports.",
   "files": [
     "index.js",
