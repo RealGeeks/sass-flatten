@@ -64,6 +64,7 @@ function isImportStatement(node) {
 }
 
 function accumulate(includePath, array, node) {
+  console.log('ACCUMULATE');
   if (node.type == 'string') {
     var resolvedFile = resolveScssPath(
       // Remove quotes
@@ -73,10 +74,16 @@ function accumulate(includePath, array, node) {
 
     if (resolvedFile) {
       var resolvedDir = path.dirname(resolvedFile);
+      console.dir({
+        includePath,
+        array,
+        node,
+      });
       var subnodes = gonzales.parse(
         read(resolvedFile, 'utf8'),
         {syntax: 'scss'}
       ).content;
+      console.log('AFTER ACC PARSE');
 
       subnodes.forEach(function (node) {
         node.includePath = resolvedDir;
