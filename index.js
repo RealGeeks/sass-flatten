@@ -7,6 +7,7 @@ var gonzales = require('gonzales-pe');
 
 var flatten = module.exports = function (data, includePath) {
   var ast = gonzales.parse(data, {syntax: 'scss'});
+  console.log('AFTER A PARSE');
   var content = ast.content;
   var args;
 
@@ -31,6 +32,7 @@ var flatten = module.exports = function (data, includePath) {
     }
   }
 
+  console.log('DOING THE TOSTRING');
   return ast.toString('scss');
 };
 
