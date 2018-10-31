@@ -29,7 +29,13 @@ var dest = cli.input[1] || src;
 var inc = cli.flags.includePath || path.dirname(src);
 
 if (src) {
-  write(dest, flatten(read(src, 'utf8'), inc));
+  try {
+    write(dest, flatten(read(src, 'utf8'), inc));
+  }
+  catch(error) {
+    console.error(error.stack);
+    throw error;
+  }
 } else {
   getStdin()
     .then(function (data) {
